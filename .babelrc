@@ -1,0 +1,16 @@
+{
+  "plugins": [
+    "react-hot-loader/babel",
+    "transform-object-rest-spread",
+    ["module-resolver", {
+      "root": ["./"],
+      "alias": {
+        "components": "./app/components",
+      }
+    }]
+  ],
+  "presets": [
+    "env",
+    "react"
+  ]
+}
