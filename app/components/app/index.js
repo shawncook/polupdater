@@ -1,4 +1,6 @@
 import React from 'react';
+import PostListContainer from '../postListContainer';
+
 import './app.css';
 
 /**
@@ -7,7 +9,10 @@ import './app.css';
 class App extends React.Component {
   render() {
     return (
-      <h1>Hello World</h1>
+      <div className='app'>
+        <h1 className='app__title'>Polupdater</h1>
+        <PostListContainer />
+      </div>
     );
   }
 }

@@ -1,0 +1,13 @@
+.post-list__post {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.post-list__post-title,
+.post-list__comments-link {
+  color: inherit;
+  margin-bottom: 0.5rem;
+  text-decoration: none;
+}
