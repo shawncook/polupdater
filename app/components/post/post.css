@@ -2,12 +2,30 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  margin-bottom: 0.5rem;
+  padding: 1rem;
 }
 
-.post-list__post-title,
+.post-list__post:nth-child(odd) {
+  background-color: #efefef;
+}
+
+.post-list__post-title a,
 .post-list__comments-link {
   color: inherit;
-  margin-bottom: 0.5rem;
   text-decoration: none;
+}
+
+.post-list__post-title {
+  width: calc(100% - 200px);
+}
+
+.post-list__comments-link {
+  text-align: right;
+  width: 200px;
+}
+
+.post-list__post-domain {
+  color: #aaa;
+  font-weight: 700;
+  margin-left: 1rem;
 }

@@ -9,17 +9,15 @@ import './postList.css';
 class PostList extends React.Component {
   render() {
     const {
-      data,
+      postList
     } = this.props;
     return (
       <ul className='post-list'>
-        {data.map((post) => (
+        {postList.map((post) => (
           <Post
             className='post-list__post'
-            key={post.title}
-            postUrl={post.url}
-            commentsUrl={post.permalink}
-            title={post.title}
+            key={post.id}
+            post={post}
           />
         ))}
       </ul>

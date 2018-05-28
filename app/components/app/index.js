@@ -1,5 +1,6 @@
 import React from 'react';
-import PostListContainer from '../postListContainer';
+import PostList from '../postList';
+import Tools from '../tools';
 
 import './app.css';
 
@@ -7,11 +8,74 @@ import './app.css';
  * App wrapper component.
  */
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    const toggleSort = this.toggleSort.bind(this);
+    this.state = {
+      activeSort: 'rising',
+      postList: [],
+      receivedAt: '',
+      subreddit: 'politics',
+    }
+  }
+
+  componentDidMount() {
+    this.populatePostList();
+  }
+
+  populatePostList() {
+    this.fetchPosts(this.state.subreddit, this.state.activeSort)
+      .then((result) => {
+        this.setState({
+          receivedAt: result.receivedAt,
+          postList: result.posts
+        });
+      });
+  }
+
+  receivePosts(subreddit, json) {
+    return {
+      subreddit,
+      posts: json.data.children.map(child => child.data),
+      receivedAt: Date.now()
+    }
+  }
+
+  fetchPosts(subreddit, activeSort) {
+    const data = fetch(`https://www.reddit.com/r/${subreddit}/${activeSort}/.json`)
+      .then(response => response.json())
+      .then(json => this.receivePosts(subreddit, json));
+    return data;
+  }
+
+  toggleSort(activeSort) {
+    const newSort = ('rising' === activeSort ? 'new' : 'rising');
+    this.setState({
+      activeSort: newSort
+    }, () => this.populatePostList());
+  }
+
+  refreshPosts() {
+    this.populatePostList();
+  }
+
   render() {
     return (
-      <div className='app'>
-        <h1 className='app__title'>Polupdater</h1>
-        <PostListContainer />
+      <div>
+        <h1 className='post-list__header'>
+          /r/{this.state.subreddit} - {this.state.activeSort}
+          <small className='post-list__updated'>
+            Updated {this.state.receivedAt}
+          </small>
+        </h1>
+        <Tools
+          activeSort={this.state.activeSort}
+          toggleSort={this.toggleSort.bind(this)}
+          refreshPosts={this.refreshPosts.bind(this)}
+        />
+        <PostList
+          postList={this.state.postList}
+        />
       </div>
     );
   }

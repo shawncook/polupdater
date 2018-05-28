@@ -1,0 +1,10 @@
+.post-list__tools {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.post-list__sort-toggle,
+.post-list__refresh {
+  cursor: pointer;
+  font: inherit;
+}

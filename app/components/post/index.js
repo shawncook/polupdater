@@ -7,25 +7,28 @@ import './post.css';
 class Post extends React.Component {
   render() {
     const {
-      commentsUrl,
-      postUrl,
-      title
+      post
     } = this.props;
     return (
       <li className='post-list__post'>
-        <a
-          className='post-list__post-title'
-          href={postUrl}
-        >
-          {title}
-        </a>
+        <div className='post-list__post-title'>
+          <a
+            href={post.url}
+            title={post.created}
+          >
+            {post.title}
+            <small className='post-list__post-domain'>
+              {post.domain}
+            </small>
+          </a>
+        </div>
         <a
           className='post-list__comments-link'
-          href={`http://np.reddit.com` + commentsUrl}
+          href={`http://np.reddit.com` + post.permalink}
           target='_blank'
           rel='noopener'
         >
-          Comments
+          {post.num_comments || `No`} comments
         </a>
       </li>
     );
