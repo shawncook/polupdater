@@ -68,16 +68,18 @@ class App extends React.Component {
   render() {
     return (
       <div className='app'>
-        <Header
-          activeSort={this.state.activeSort}
-          subreddit={this.state.subreddit}
-          receivedAt={this.state.receivedAt}
-        />
-        <Tools
-          activeSort={this.state.activeSort}
-          toggleSort={this.toggleSort.bind(this)}
-          refreshPosts={this.refreshPosts.bind(this)}
-        />
+        <div className='app__header'>
+          <Header
+            activeSort={this.state.activeSort}
+            subreddit={this.state.subreddit}
+            receivedAt={this.state.receivedAt}
+          />
+          <Tools
+            activeSort={this.state.activeSort}
+            toggleSort={this.toggleSort.bind(this)}
+            refreshPosts={this.refreshPosts.bind(this)}
+          />
+        </div>
         <PostList postList={this.state.postList} />
       </div>
     );

@@ -1,17 +1,19 @@
+@import '../../_theme';
+
 .post-list__header {
   align-items: baseline;
   display: flex;
-  justify-content: space-between;
 }
 
 .post-list__title {
-  font-size: 1.2em;
+  font-size: $font-size-large;
+  font-weight: inherit;
 }
 
 .post-list__updated {
   display: block;
-  font-size: 12px;
-  font-weight: 200;
+  font-size: $font-size-small;
+  margin-left: 1rem;
   margin-top: 0.5rem;
 }
 

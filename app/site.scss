@@ -1,0 +1,9 @@
+@import './_theme';
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+
+body {
+  background-color: $background-body;
+  color: $text-default;
+  font: $font-weight-default $font-size-default/1.2 'Open Sans', Helvetica, sans-serif;
+}
