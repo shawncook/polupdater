@@ -17,16 +17,11 @@ module.exports = function getLoaders(mode) {
       loader: "file?name=[name].[ext]",
     },
     {
-      test: /\.css$/,
+      test: /\.scss$/,
       use: [
         'style-loader',
-        {
-          loader: 'css-loader',
-          options: {
-            url: false,
-            minimize: isProd
-          }
-        },
+        'css-loader',
+        'sass-loader'
       ]
     }
   ];

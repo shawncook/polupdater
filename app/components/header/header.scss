@@ -1,11 +1,10 @@
-body {
-  font: 14px/1.2 sans-serif;
-}
-
 .post-list__header {
   align-items: baseline;
   display: flex;
   justify-content: space-between;
+}
+
+.post-list__title {
   font-size: 1.2em;
 }
 
@@ -15,3 +14,4 @@ body {
   font-weight: 200;
   margin-top: 0.5rem;
 }
+
