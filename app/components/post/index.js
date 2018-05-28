@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './post.scss';
 
 /**
@@ -14,7 +15,8 @@ class Post extends React.Component {
         <div className='post-list__post-title'>
           <a
             href={post.url}
-            title={post.created}
+            target='_blank'
+            rel='noopener'
           >
             {post.title}
             <small className='post-list__post-domain'>

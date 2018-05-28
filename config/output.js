@@ -13,6 +13,12 @@ module.exports = function getOutput(mode) {
       publicPath: '//localhost:8080/dist',
       filename: '[name].bundle.js',
     };
+  case 'production':
+    return {
+      path: BUILD_DIR,
+      publicPath: '/dist',
+      filename: '[name].bundle.js',
+    };
   default:
     return {};
   }

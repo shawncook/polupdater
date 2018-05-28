@@ -12,6 +12,10 @@ module.exports = function getEntry(mode) {
     return {
       dev: path.join(APP_DIR, 'index.js'),
     };
+  case 'production':
+    return {
+      scripts: path.join(APP_DIR, 'index.js'),
+    };
   default:
     return {};
   }
