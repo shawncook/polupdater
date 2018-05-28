@@ -22,14 +22,15 @@ class Post extends React.Component {
             </small>
           </a>
         </div>
-        <a
-          className='post-list__comments-link'
-          href={`http://np.reddit.com` + post.permalink}
-          target='_blank'
-          rel='noopener'
-        >
-          {post.num_comments || `No`} comments
-        </a>
+        <div className='post-list__comments-link'>
+          <a
+            href={`http://np.reddit.com` + post.permalink}
+            target='_blank'
+            rel='noopener'
+          >
+            {post.num_comments || `No`} comments
+          </a>
+        </div>
       </li>
     );
   }

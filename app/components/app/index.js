@@ -1,4 +1,5 @@
 import React from 'react';
+import Moment from 'react-moment';
 import PostList from '../postList';
 import Tools from '../tools';
 
@@ -19,8 +20,13 @@ class App extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
   componentDidMount() {
     this.populatePostList();
+    this.interval = setInterval(() => this.populatePostList(), 60000);
   }
 
   populatePostList() {
@@ -63,9 +69,9 @@ class App extends React.Component {
     return (
       <div>
         <h1 className='post-list__header'>
-          /r/{this.state.subreddit} - {this.state.activeSort}
+          {`/r/` + this.state.subreddit} &ndash; {this.state.activeSort}
           <small className='post-list__updated'>
-            Updated {this.state.receivedAt}
+            Updated <Moment format="h:mm a">{this.state.receivedAt || Date.now()}</Moment>
           </small>
         </h1>
         <Tools
@@ -73,9 +79,7 @@ class App extends React.Component {
           toggleSort={this.toggleSort.bind(this)}
           refreshPosts={this.refreshPosts.bind(this)}
         />
-        <PostList
-          postList={this.state.postList}
-        />
+        <PostList postList={this.state.postList} />
       </div>
     );
   }
