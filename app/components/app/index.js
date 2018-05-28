@@ -1,9 +1,9 @@
 import React from 'react';
-import Moment from 'react-moment';
+import Header from '../header';
 import PostList from '../postList';
 import Tools from '../tools';
 
-import './app.css';
+import './app.scss';
 
 /**
  * App wrapper component.
@@ -67,13 +67,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1 className='post-list__header'>
-          {`/r/` + this.state.subreddit} &ndash; {this.state.activeSort}
-          <small className='post-list__updated'>
-            Updated <Moment format="h:mm a">{this.state.receivedAt || Date.now()}</Moment>
-          </small>
-        </h1>
+      <div className='app'>
+        <Header
+          activeSort={this.state.activeSort}
+          subreddit={this.state.subreddit}
+          receivedAt={this.state.receivedAt}
+        />
         <Tools
           activeSort={this.state.activeSort}
           toggleSort={this.toggleSort.bind(this)}

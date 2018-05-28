@@ -3,15 +3,14 @@
   margin-bottom: 0.5rem;
 }
 
-.post-list__sort-toggle {
-  margin-right: 0.5rem;
-}
-
-.post-list__sort-toggle,
-.post-list__refresh {
+.post-list__button {
   background: #f2f2f2;
   border: 0;
   cursor: pointer;
   font: inherit;
   padding: 0.5rem 1rem;
+
+  &--type-sort-toggle {
+    margin-right: 0.5rem;
+  }
 }
