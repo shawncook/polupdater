@@ -22,7 +22,11 @@
 .post-list__post-title {
   color: $text-title;
   font-size: $font-size-large;
-  width: calc(100% - #{$commentsLinkWidth});
+  width: calc(100% - 25vw);
+
+  @media screen and (min-width: 480px) {
+    width: calc(100% - #{$commentsLinkWidth});
+  }
 
   a {
     color: inherit;
@@ -31,13 +35,26 @@
 }
 
 .post-list__comments-link {
+  font-size: $font-size-large;
   text-align: right;
-  width: $commentsLinkWidth;
+  width: 25vw;
+
+  @media screen and (min-width: 480px) {
+    font-size: $font-size-small;
+    width: $commentsLinkWidth;
+  }
 
   a {
     color: $text-link-accent;
-    font-size: $font-size-small;
     font-weight: $font-weight-bold;
     text-decoration: none;
+  }
+
+  span {
+    display: none;
+
+    @media screen and (min-width: 480px) {
+      display: inline-block;
+    }
   }
 }

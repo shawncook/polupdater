@@ -30,7 +30,9 @@ class Post extends React.Component {
             target='_blank'
             rel='noopener'
           >
-            {post.num_comments || `No`} comments
+            {post.num_comments || `No`}
+            {' '}
+            <span>comments</span>
           </a>
         </div>
       </li>
