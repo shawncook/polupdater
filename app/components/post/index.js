@@ -26,7 +26,7 @@ class Post extends React.Component {
         </div>
         <div className='post-list__comments-link'>
           <a
-            href={`http://np.reddit.com` + post.permalink}
+            href={`https://www.reddit.com` + post.permalink}
             target='_blank'
             rel='noopener'
           >
